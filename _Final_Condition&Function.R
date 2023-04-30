@@ -38,9 +38,12 @@ for (nt in NStrait) {# Baseline conditions come first
     }
   }
 }
-CONDITION = CONDITION %>% mutate_at(vars(names(CONDITION)[-1]), as.numeric)
-CONDITION$Condition = c(replicate(24, 'Baseline'), replicate(nrow(CONDITION)-24, 'LD'))
-CONDITION = CONDITION[order(CONDITION$SampleSize), ]
+CONDITION = CONDITION %>% mutate_at(vars(names(CONDITION)[-1]), as.numeric)# define variable types: ModelType as character
+CONDITION$Condition = c(replicate(24, 'Baseline'), replicate(nrow(CONDITION)-24, 'LD'))# add condition info
+CONDITION$Seed = seq(1, nrow(CONDITION))# add Seed column
+CONDITION = CONDITION[order(CONDITION$SampleSize), ]# sort by N: ascending
+rownames(CONDITION) = seq(1, nrow(CONDITION))
+
 ### Save the condition file to project directory
 write.csv(CONDITION, paste(project.dir, '/_ALL_Conditions_',nrow(CONDITION), ".csv",sep=""))
 
@@ -382,7 +385,8 @@ Results = function(cd, iteration){# specify condition index [cd] and #.iteration
   corr = CONDITION[cd,'Correlation']# residual correlation
   pctLD = CONDITION[cd,'pctLD']# percentage of LD items
 
-  set.seed(cd)
+  sd = CONDITION[cd, 'Seed']
+  set.seed(sd)
   
   ## Generate model parameters for each condition
   discrimination = GenA()
