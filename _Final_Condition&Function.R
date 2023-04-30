@@ -40,7 +40,7 @@ for (nt in NStrait) {# Baseline conditions come first
 }
 CONDITION = CONDITION %>% mutate_at(vars(names(CONDITION)[-1]), as.numeric)
 CONDITION$Condition = c(replicate(24, 'Baseline'), replicate(nrow(CONDITION)-24, 'LD'))
-#CONDITION$ModelType = factor(CONDITION$ModelType, labels = c('PCM', 'GPCM'))
+CONDITION = CONDITION[order(CONDITION$SampleSize), ]
 ### Save the condition file to project directory
 write.csv(CONDITION, paste(project.dir, '/_ALL_Conditions_',nrow(CONDITION), ".csv",sep=""))
 
