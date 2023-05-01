@@ -417,7 +417,7 @@ Results = function(cd, iteration){# specify condition index [cd] and #.iteration
     IRT = rbind(IRT, IRTfit)
     CFA = rbind(CFA, CFAfit)
     
-    cdname = paste(cd,paste(names(CONDITION),CONDITION[cd,], sep='_', collapse = '_'), sep='_')
+    cdname = paste(sd,paste(names(CONDITION),CONDITION[cd,], sep='_', collapse = '_'), sep='_')
     write.csv(IRT_M2, paste(records.dir,'/IRT_M2_', cdname, '.csv', sep=''))
     write.csv(IRT, paste(records.dir,'/IRT_', cdname, '.csv', sep=''))
     write.csv(CFA, paste(records.dir,'/CFA_', cdname, '.csv', sep=''))
