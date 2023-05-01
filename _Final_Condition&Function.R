@@ -223,7 +223,7 @@ Results = function(cd, iteration){# specify condition index [cd] and #.iteration
     cfafit = cfa(mdCFA(Response), Response, ordered = T,
                  estimator = 'WLSMV', parameterization = 'theta')
     est = parameterestimates(cfafit)# col.5 are the estimates
-    fhat = lavPredict(cfafit)# factor score estimates
+    fhat = lavPredict(cfafit, method = 'ML')# factor score estimates
     
     y1 = test + 2; y2 = y1 + (category-1)*test - 1
     loading = est[1:test, 5]# factor loading estimates
