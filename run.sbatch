@@ -6,7 +6,7 @@
 #SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
 #SBATCH --time=4-00:00:00
-#SBATCH --mem=256gb
+#SBATCH --mem=248gb
 #SBATCH --partition=general
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=venus
