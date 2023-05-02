@@ -3,10 +3,10 @@
 #SBATCH --account=general
 #SBATCH --mail-user=hw56@iu.edu
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=57
-#SBATCH --cpus-per-task=64
+#SBATCH --ntasks-per-node=128
+#SBATCH --cpus-per-task=1
 #SBATCH --time=4-00:00:00
-#SBATCH --mem=128gb
+#SBATCH --mem=256gb
 #SBATCH --partition=general
 #SBATCH --mail-type=ALL
 #SBATCH --job-name=venus
@@ -17,6 +17,6 @@
 module load r/4.1.1
 
 ######  Job commands go below this line #####
-for ((i=1; i<=456; i+=57)); do
-    Rscript Execute_Terminal.R $i $((i+56))
+for ((i=1; i<=456; i+=114)); do
+    Rscript Execute_Terminal.R $i $((i+113))
 done
