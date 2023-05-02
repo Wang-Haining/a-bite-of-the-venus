@@ -7,8 +7,8 @@
 ## Check line 50 for core usage - make changes if needed
 ###################### Get Args ##############################
 args = commandArgs(trailingOnly = TRUE)
-start_condition = args[1]
-end_condition = args[2]
+start_condition = as.numeric(args[1])
+end_condition = as.numeric(args[2])
 
 ###################### Install and Load packages ############################## 
 .libPaths()
@@ -30,7 +30,7 @@ foreach (dir = c(project.dir, records.dir, output.dir)) %do% list.files(dir)
 ###############################################################################
 ## Read the script file
 ## Setup the correct folder path before running the script
-script = paste(project.dir, "/_Final_Condition&Function.R", sep = "")
+script = paste("_Final_Condition&Function.R", sep = "")
 source(script)
 
 iteration = 500
@@ -47,7 +47,7 @@ pbi = progress_bar$new(total = condct,
 #### Load the package
 library(doParallel)
 #detectCores() # 8 cores
-core = 128 # how many cores you want to use to parallel
+core = 114 # how many cores you want to use to parallel
 #### obtain analysis results using parallel computing ####
 ############
 CLUSTER = makeCluster(core, type = "FORK") # establish clusters
