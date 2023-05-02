@@ -3,8 +3,8 @@
 #SBATCH --account=general
 #SBATCH --mail-user=hw56@iu.edu
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=114
-#SBATCH --cpus-per-task=128
+#SBATCH --ntasks-per-node=57
+#SBATCH --cpus-per-task=64
 #SBATCH --time=4-00:00:00
 #SBATCH --mem=128gb
 #SBATCH --partition=general
@@ -17,6 +17,6 @@
 module load r/4.1.1
 
 ######  Job commands go below this line #####
-for ((i=1; i<=456; i+=114)); do
-    Rscript Execute_Terminal.R $i $((i+113))
+for ((i=1; i<=456; i+=57)); do
+    Rscript Execute_Terminal.R $i $((i+56))
 done
