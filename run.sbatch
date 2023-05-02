@@ -3,7 +3,7 @@
 #SBATCH --account=general
 #SBATCH --mail-user=hw56@iu.edu
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=114
 #SBATCH --cpus-per-task=128
 #SBATCH --time=4-0:0:00
 #SBATCH --mem=256gb
