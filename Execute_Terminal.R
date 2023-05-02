@@ -47,7 +47,7 @@ pbi = progress_bar$new(total = condct,
 #### Load the package
 library(doParallel)
 #detectCores() # 8 cores
-core = 10 # how many cores you want to use to parallel
+core = 128 # how many cores you want to use to parallel
 #### obtain analysis results using parallel computing ####
 ############
 CLUSTER = makeCluster(core, type = "FORK") # establish clusters
