@@ -17,4 +17,6 @@
 module load r/4.1.1
 
 ######  Job commands go below this line #####
-Rscript Execute_Terminal.R 1 114
+for ((i=1; i<=456; i+=114)); do
+    Rscript Execute_Terminal.R $i $((i+113))
+done
